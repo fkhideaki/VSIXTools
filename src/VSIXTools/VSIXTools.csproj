@@ -50,8 +50,8 @@
     <Compile Include="OpenPairCmd.cs" />
     <Compile Include="OpenTmp1.cs" />
     <Compile Include="OpenTmp2.cs" />
-    <Compile Include="TortoiseDiffCmd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TortoiseDiffCmd.cs" />
     <Compile Include="TortoiseDiffDirCmd.cs" />
     <Compile Include="TortoiseLogCmd.cs" />
     <Compile Include="TortoiseLogDirCmd.cs" />
@@ -82,12 +82,12 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\TortoiseDiffCmd.png" />
     <Content Include="Resources\FindMultilineCmd.png" />
     <Content Include="Resources\OpenCurrentDirCmd.png" />
     <Content Include="Resources\OpenPairCmd.png" />
     <Content Include="Resources\OpenTmp1.png" />
     <Content Include="Resources\OpenTmp2.png" />
+    <Content Include="Resources\TortoiseDiffCmd.png" />
     <Content Include="Resources\TortoiseDiffDirCmd.png" />
     <Content Include="Resources\TortoiseLogCmd.png" />
     <Content Include="Resources\TortoiseLogDirCmd.png" />

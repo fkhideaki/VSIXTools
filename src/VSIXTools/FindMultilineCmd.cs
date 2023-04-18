@@ -1,12 +1,14 @@
-﻿using System;
+﻿using EnvDTE;
+using EnvDTE80;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
+using System;
 using System.ComponentModel.Design;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using Task = System.Threading.Tasks.Task;
-using EnvDTE;
 
 namespace VSIXTools
 {
@@ -98,14 +100,14 @@ namespace VSIXTools
                 return;
 
             Find f = dte.Find;
+            f.Action = vsFindAction.vsFindActionFind;
+            f.Backwards = false;
             f.FindWhat = fs;
             f.MatchWholeWord = false;
             f.MatchCase = false;
-            f.Backwards = false;
             f.MatchInHiddenText = true;
             f.Target = vsFindTarget.vsFindTargetCurrentDocument;
             f.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxRegExpr;
-            f.Action = vsFindAction.vsFindActionFind;
 
             Window w = (Window)dte.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
             w.Visible = true;
