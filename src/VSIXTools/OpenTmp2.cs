@@ -92,7 +92,7 @@ namespace VSIXTools
             ThreadHelper.ThrowIfNotOnUIThread();
 
             DTE dte = Package.GetGlobalService(typeof(SDTE)) as DTE;
-            dte.ItemOperations.OpenFile(@"C:\ws\vs\tmp\tmp_2.cpp");
+            dte.ItemOperations.OpenFile(@"C:\ws\vs\tmp\tmp_2.txt");
         }
     }
 }
