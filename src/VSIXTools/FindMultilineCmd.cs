@@ -106,7 +106,26 @@ namespace VSIXTools
             f.Target = vsFindTarget.vsFindTargetCurrentDocument;
             f.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxRegExpr;
             f.Action = vsFindAction.vsFindActionFind;
-            //DTE.ExecuteCommand("Edit.FindNext");
+
+            Window w = (Window)dte.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
+            w.Visible = true;
+
+            OutputWindowPane owp = GetOutputPane(w);
+            owp.Activate();
+
+            owp.OutputString(fs + "\n");
+        }
+
+        private OutputWindowPane GetOutputPane(Window w)
+        {
+            string n = "Multiline Search";
+            OutputWindow ow = (OutputWindow)w.Object;
+            foreach(OutputWindowPane p in ow.OutputWindowPanes)
+            {
+                if (p.Name == n)
+                    return p;
+            }
+            return ow.OutputWindowPanes.Add(n);
         }
 
         string getMultilineFindPattern(DTE dte)
