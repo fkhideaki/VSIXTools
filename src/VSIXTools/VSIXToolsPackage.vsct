@@ -52,7 +52,7 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidVSIXToolsPackageCmdSet" id="Command1Id" priority="0x0100" type="Button">
+      <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidTortoiseDiffCmd" priority="0x0100" type="Button">
         <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
@@ -124,7 +124,7 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\Command1.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages" href="Resources\TortoiseDiffCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages1" href="Resources\TortoiseLogCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages2" href="Resources\TortoiseDiffDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages3" href="Resources\TortoiseLogDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
@@ -142,8 +142,8 @@
 
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="guidVSIXToolsPackageCmdSet" value="{1fa306ad-270a-4e59-b787-36be58354308}">
-      <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="Command1Id" value="0x0100" />
+      <IDSymbol value="0x1020" name="MyMenuGroup" />
+      <IDSymbol value="0x0100" name="cmdidTortoiseDiffCmd" />
       <IDSymbol value="4129" name="cmdidTortoiseLogCmd" />
       <IDSymbol value="4130" name="cmdidTortoiseDiffDirCmd" />
       <IDSymbol value="4131" name="cmdidTortoiseLogDirCmd" />
