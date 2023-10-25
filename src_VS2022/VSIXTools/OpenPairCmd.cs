@@ -2,15 +2,29 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
+using System.Windows.Forms;
 
 namespace VSIXTools
 {
+    class ExtPair
+    {
+        public string src;
+        public string dst;
+
+        public ExtPair(string src_, string dst_)
+        {
+            src = src_;
+            dst = dst_;
+        }
+    }
+
     /// <summary>
     /// Command handler
     /// </summary>
@@ -107,46 +121,51 @@ namespace VSIXTools
 
         private string getPair(string path)
         {
-            string srcExt = System.IO.Path.GetExtension(path).ToLower();
-            string basePath = System.IO.Path.GetDirectoryName(path) + "\\" + System.IO.Path.GetFileNameWithoutExtension(path);
-            List<string> exts = getPairExts(srcExt);
-            if (exts == null)
-                return null;
+            List<ExtPair> exts = new List<ExtPair>();
+            exts.Add(new ExtPair(".cpp", ".h"));
+            exts.Add(new ExtPair(".cpp", ".hpp"));
+            exts.Add(new ExtPair(".h", ".cpp"));
+            exts.Add(new ExtPair(".c", ".h"));
+            exts.Add(new ExtPair(".h", ".c"));
+            exts.Add(new ExtPair(".frag", ".vert"));
+            exts.Add(new ExtPair(".vert", ".frag"));
+            exts.Add(new ExtPair(".xaml", ".xaml.cs"));
+            exts.Add(new ExtPair(".xaml.cs", ".xaml"));
 
-            foreach (string ext in exts)
+            string p = path.ToLower();
+
+            foreach (ExtPair ext in exts)
             {
-                string d = basePath + ext;
-                if (System.IO.File.Exists(d))
-                    return d;
+                string s = GetReplace(p, ext.src, ext.dst);
+                if (s != null)
+                    return s;
             }
+
             return null;
         }
 
-        private List<string> getPairExts(string srcExt)
+        private static string GetReplace(string path, string srcEnd, string dstEnd)
         {
-            List<string> l = new List<string>();
-            if (srcExt == ".cpp" || srcExt == ".c")
+            if (!IsMatchEnd(path, srcEnd))
             {
-                l.Add(".h");
-                l.Add(".hpp");
-                return l;
+                return null;
             }
-            if (srcExt == ".h" || srcExt == ".hpp")
-            {
-                l.Add(".cpp");
-                l.Add(".c");
-                return l;
-            }
-            if (srcExt == ".frag")
-            {
-                l.Add(".vert");
-                return l;
-            }
-            if (srcExt == ".vert")
-            {
-                l.Add(".frag");
-                return l;
-            }
+
+            return path.Substring(0, path.Length - srcEnd.Length) + dstEnd;
+        }
+
+        private static bool IsMatchEnd(string fp, string e)
+        {
+            if (fp.Length < e.Length)
+                return false;
+            return fp.Substring(fp.Length - e.Length) == e;
+        }
+
+        private static string GetExistsPath(string basePath, string ext)
+        {
+            string d = basePath + ext;
+            if (File.Exists(d))
+                return d;
             return null;
         }
     }
