@@ -8,6 +8,7 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Task = System.Threading.Tasks.Task;
 
 namespace VSIXTools
@@ -117,6 +118,8 @@ namespace VSIXTools
             owp.Activate();
 
             owp.OutputString(fs + "\n");
+
+            Clipboard.SetText(fs);
         }
 
         private OutputWindowPane GetOutputPane(Window w)

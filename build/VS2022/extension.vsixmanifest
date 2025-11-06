@@ -1,8 +1,8 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
-    <Identity Id="VSIXTools.685a2ebe-2cb5-4368-b023-9614d50fe058" Version="1.2" Language="en-US" Publisher="FKHD" />
+    <Identity Id="VSIXTools.685a2ebe-2cb5-4368-b023-9614d50fe058" Version="1.3" Language="en-US" Publisher="FKHD" />
     <DisplayName>VSIXTools</DisplayName>
-    <Description>Empty VSIX Project.</Description>
+    <Description xml:space="preserve">Empty VSIX Project.</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
