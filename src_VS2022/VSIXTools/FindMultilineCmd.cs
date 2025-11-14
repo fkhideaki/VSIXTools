@@ -114,10 +114,9 @@ namespace VSIXTools
             Window w = (Window)dte.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
             w.Visible = true;
 
-            OutputWindowPane owp = GetOutputPane(w);
-            owp.Activate();
-
-            owp.OutputString(fs + "\n");
+            //OutputWindowPane owp = GetOutputPane(w);
+            //owp.Activate();
+            //owp.OutputString(fs + "\n");
 
             Clipboard.SetText(fs);
         }
