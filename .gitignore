@@ -1,4 +1,3 @@
 .vs/
-src_VS2022/VSIXTools/obj/
-src_VS2022/VSIXTools/bin/
 src/VSIXTools/obj/
+src/VSIXTools/bin/

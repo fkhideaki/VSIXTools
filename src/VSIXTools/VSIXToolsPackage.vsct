@@ -54,28 +54,28 @@
           If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidTortoiseDiffCmd" priority="0x0100" type="Button">
         <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages9" id="bmpPic1" />
         <Strings>
           <ButtonText>TortoiseDiff</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidTortoiseLogCmd" priority="0x0100" type="Button">
+      <Button guid="guidVSIXToolsPackageCmdSet" id="TortoiseLogCmdId" priority="0x0100" type="Button">
         <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages1" id="bmpPic1" />
+        <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
           <ButtonText>TortoiseLog</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidTortoiseDiffDirCmd" priority="0x0100" type="Button">
         <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages2" id="bmpPic1" />
+        <Icon guid="guidImages1" id="bmpPic1" />
         <Strings>
           <ButtonText>TortoiseDiffDir</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidTortoiseLogDirCmd" priority="0x0100" type="Button">
         <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages3" id="bmpPic1" />
+        <Icon guid="guidImages2" id="bmpPic1" />
         <Strings>
           <ButtonText>TortoiseLogDir</ButtonText>
         </Strings>
@@ -94,20 +94,6 @@
           <ButtonText>OpenPair</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidOpenTmp1" priority="0x0100" type="Button">
-        <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages6" id="bmpPic1" />
-        <Strings>
-          <ButtonText>OpenTmp1</ButtonText>
-        </Strings>
-      </Button>
-      <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidOpenTmp2" priority="0x0100" type="Button">
-        <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages7" id="bmpPic1" />
-        <Strings>
-          <ButtonText>OpenTmp2</ButtonText>
-        </Strings>
-      </Button>
       <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidFindMultilineCmd" priority="0x0100" type="Button">
         <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages8" id="bmpPic1" />
@@ -124,37 +110,34 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\TortoiseDiffCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages1" href="Resources\TortoiseLogCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages2" href="Resources\TortoiseDiffDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages3" href="Resources\TortoiseLogDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages9" href="Resources\TortoiseDiffCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages" href="Resources\TortoiseLogCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages1" href="Resources\TortoiseDiffDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages2" href="Resources\TortoiseLogDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages4" href="Resources\OpenCurrentDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages5" href="Resources\OpenPairCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages6" href="Resources\OpenTmp1.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages7" href="Resources\OpenTmp2.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages8" href="Resources\FindMultilineCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
   </Commands>
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidVSIXToolsPackage" value="{a87f1cda-0eb3-4cf3-a3ea-1fd68056fb6d}" />
+    <GuidSymbol name="guidVSIXToolsPackage" value="{719b553e-c9fe-42c1-b40f-92edccf9a745}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidVSIXToolsPackageCmdSet" value="{1fa306ad-270a-4e59-b787-36be58354308}">
-      <IDSymbol value="0x1020" name="MyMenuGroup" />
-      <IDSymbol value="0x0100" name="cmdidTortoiseDiffCmd" />
-      <IDSymbol value="4129" name="cmdidTortoiseLogCmd" />
-      <IDSymbol value="4130" name="cmdidTortoiseDiffDirCmd" />
-      <IDSymbol value="4131" name="cmdidTortoiseLogDirCmd" />
+    <GuidSymbol name="guidVSIXToolsPackageCmdSet" value="{19db246c-f602-457b-af45-cad72791aabd}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="VSIXToolsMenu" value="0x1050" />
+      <IDSymbol value="4137" name="cmdidTortoiseDiffCmd" />
+      <IDSymbol value="4129" name="cmdidTortoiseDiffDirCmd" />
+      <IDSymbol value="0x0100" name="TortoiseLogCmdId" />
+      <IDSymbol value="4130" name="cmdidTortoiseLogDirCmd" />
       <IDSymbol value="4132" name="cmdidOpenCurrentDirCmd" />
       <IDSymbol value="4133" name="cmdidOpenPairCmd" />
-      <IDSymbol value="4134" name="cmdidOpenTmp1" />
-      <IDSymbol value="4135" name="cmdidOpenTmp2" />
       <IDSymbol value="4136" name="cmdidFindMultilineCmd" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{0b58dabc-8c51-4aa5-a8c4-c148751de020}">
+    <GuidSymbol name="guidImages" value="{373026d6-b94d-42ba-89e1-9ece1e123835}">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -163,7 +146,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{bc3151c2-1dc8-4483-b2dc-9702327c3ade}" name="guidImages1">
+    <GuidSymbol value="{1ae66acf-c0d8-403e-9e3e-d3da222a1bd4}" name="guidImages1">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -172,7 +155,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{8cfe7553-0104-4da9-a375-6b841630cd6e}" name="guidImages2">
+    <GuidSymbol value="{de30a804-f8fb-4832-ac48-c5860a80767d}" name="guidImages2">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -181,7 +164,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{495ba597-8aa8-4e43-85b4-e8951b9c1763}" name="guidImages3">
+    <GuidSymbol value="{ce13e626-7996-4cde-a65a-98603c7bc86b}" name="guidImages3">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -190,7 +173,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{a95d6323-7bc8-4b2d-940b-4f26197c5440}" name="guidImages4">
+    <GuidSymbol value="{eb27530d-635b-45c9-b9ff-3eba8a7e8348}" name="guidImages4">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -199,7 +182,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{35b0a21d-0e70-4a31-9b9a-80db60b91383}" name="guidImages5">
+    <GuidSymbol value="{6807144e-fa27-40f5-ae1e-eba3d177a8c1}" name="guidImages5">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -208,7 +191,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{296694ec-15d9-46d2-94f1-549f04e46c67}" name="guidImages6">
+    <GuidSymbol value="{40903240-b5a2-4107-b3df-f4e7a0d617c7}" name="guidImages6">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -217,7 +200,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{ebf5cf8b-bd95-4747-beaa-6b84c1cb9024}" name="guidImages7">
+    <GuidSymbol value="{3f037e0f-c648-427a-a3c0-ff1fc689f678}" name="guidImages7">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -226,7 +209,16 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{4e9fd546-2378-4d7c-8e68-254b3cfef110}" name="guidImages8">
+    <GuidSymbol value="{2a206f71-0b70-4ffc-bf48-de7f6a53db5c}" name="guidImages8">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{c8672838-f60a-4d5d-b383-a009da045fa5}" name="guidImages9">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

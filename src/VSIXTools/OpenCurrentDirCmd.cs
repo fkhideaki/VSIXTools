@@ -23,7 +23,7 @@ namespace VSIXTools
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("1fa306ad-270a-4e59-b787-36be58354308");
+        public static readonly Guid CommandSet = new Guid("19db246c-f602-457b-af45-cad72791aabd");
 
         /// <summary>
         /// VS Package that provides this command, not null.

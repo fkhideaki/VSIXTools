@@ -8,6 +8,7 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Task = System.Threading.Tasks.Task;
 
 namespace VSIXTools
@@ -25,7 +26,7 @@ namespace VSIXTools
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("1fa306ad-270a-4e59-b787-36be58354308");
+        public static readonly Guid CommandSet = new Guid("19db246c-f602-457b-af45-cad72791aabd");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -58,17 +59,6 @@ namespace VSIXTools
         }
 
         /// <summary>
-        /// Gets the service provider from the owner package.
-        /// </summary>
-        private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider
-        {
-            get
-            {
-                return this.package;
-            }
-        }
-
-        /// <summary>
         /// Initializes the singleton instance of the command.
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
@@ -95,39 +85,24 @@ namespace VSIXTools
 
             DTE dte = Package.GetGlobalService(typeof(SDTE)) as DTE;
 
-            String fs = getMultilineFindPattern(dte);
-            if (fs == null)
+            String findStr = getMultilineFindPattern(dte);
+            if (findStr == null)
                 return;
 
-            Find f = dte.Find;
-            f.Action = vsFindAction.vsFindActionFind;
-            f.Backwards = false;
-            f.FindWhat = fs;
-            f.MatchWholeWord = false;
-            f.MatchCase = false;
-            f.MatchInHiddenText = true;
-            f.Target = vsFindTarget.vsFindTargetCurrentDocument;
-            f.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxRegExpr;
+            dte.ExecuteCommand("Edit.Find");
 
-            Window w = (Window)dte.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
-            w.Visible = true;
+            Find find = dte.Find;
+            find.Action = vsFindAction.vsFindActionFind;
+            find.Backwards = false;
+            find.FindWhat = findStr;
+            find.MatchWholeWord = false;
+            find.MatchCase = false;
+            find.MatchInHiddenText = true;
+            find.Target = vsFindTarget.vsFindTargetCurrentDocument;
+            find.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxRegExpr;
+            find.Execute();
 
-            OutputWindowPane owp = GetOutputPane(w);
-            owp.Activate();
-
-            owp.OutputString(fs + "\n");
-        }
-
-        private OutputWindowPane GetOutputPane(Window w)
-        {
-            string n = "Multiline Search";
-            OutputWindow ow = (OutputWindow)w.Object;
-            foreach(OutputWindowPane p in ow.OutputWindowPanes)
-            {
-                if (p.Name == n)
-                    return p;
-            }
-            return ow.OutputWindowPanes.Add(n);
+            Clipboard.SetText(findStr);
         }
 
         string getMultilineFindPattern(DTE dte)

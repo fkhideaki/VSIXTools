@@ -31,7 +31,7 @@ namespace VSIXTools
         /// <summary>
         /// VSIXToolsPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "a87f1cda-0eb3-4cf3-a3ea-1fd68056fb6d";
+        public const string PackageGuidString = "719b553e-c9fe-42c1-b40f-92edccf9a745";
 
         #region Package Members
 
@@ -53,8 +53,6 @@ namespace VSIXTools
             await TortoiseLogDirCmd.InitializeAsync(this);
             await OpenCurrentDirCmd.InitializeAsync(this);
             await OpenPairCmd.InitializeAsync(this);
-            await OpenTmp1.InitializeAsync(this);
-            await OpenTmp2.InitializeAsync(this);
             await FindMultilineCmd.InitializeAsync(this);
         }
 

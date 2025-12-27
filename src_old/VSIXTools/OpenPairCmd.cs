@@ -2,29 +2,16 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
-using System.Windows.Forms;
+using System.IO;
 
 namespace VSIXTools
 {
-    class ExtPair
-    {
-        public string src;
-        public string dst;
-
-        public ExtPair(string src_, string dst_)
-        {
-            src = src_;
-            dst = dst_;
-        }
-    }
-
     /// <summary>
     /// Command handler
     /// </summary>
@@ -38,7 +25,7 @@ namespace VSIXTools
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("19db246c-f602-457b-af45-cad72791aabd");
+        public static readonly Guid CommandSet = new Guid("1fa306ad-270a-4e59-b787-36be58354308");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -68,6 +55,17 @@ namespace VSIXTools
         {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// Gets the service provider from the owner package.
+        /// </summary>
+        private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider
+        {
+            get
+            {
+                return this.package;
+            }
         }
 
         /// <summary>
@@ -110,51 +108,46 @@ namespace VSIXTools
 
         private string getPair(string path)
         {
-            List<ExtPair> exts = new List<ExtPair>();
-            exts.Add(new ExtPair(".cpp", ".h"));
-            exts.Add(new ExtPair(".cpp", ".hpp"));
-            exts.Add(new ExtPair(".h", ".cpp"));
-            exts.Add(new ExtPair(".c", ".h"));
-            exts.Add(new ExtPair(".h", ".c"));
-            exts.Add(new ExtPair(".frag", ".vert"));
-            exts.Add(new ExtPair(".vert", ".frag"));
-            exts.Add(new ExtPair(".xaml", ".xaml.cs"));
-            exts.Add(new ExtPair(".xaml.cs", ".xaml"));
+            string srcExt = System.IO.Path.GetExtension(path).ToLower();
+            string basePath = System.IO.Path.GetDirectoryName(path) + "\\" + System.IO.Path.GetFileNameWithoutExtension(path);
+            List<string> exts = getPairExts(srcExt);
+            if (exts == null)
+                return null;
 
-            string p = path.ToLower();
-
-            foreach (ExtPair ext in exts)
+            foreach (string ext in exts)
             {
-                string s = GetReplace(p, ext.src, ext.dst);
-                if (s != null)
-                    return s;
+                string d = basePath + ext;
+                if (System.IO.File.Exists(d))
+                    return d;
             }
-
             return null;
         }
 
-        private static string GetReplace(string path, string srcEnd, string dstEnd)
+        private List<string> getPairExts(string srcExt)
         {
-            if (!IsMatchEnd(path, srcEnd))
+            List<string> l = new List<string>();
+            if (srcExt == ".cpp" || srcExt == ".c")
             {
-                return null;
+                l.Add(".h");
+                l.Add(".hpp");
+                return l;
             }
-
-            return path.Substring(0, path.Length - srcEnd.Length) + dstEnd;
-        }
-
-        private static bool IsMatchEnd(string fp, string e)
-        {
-            if (fp.Length < e.Length)
-                return false;
-            return fp.Substring(fp.Length - e.Length) == e;
-        }
-
-        private static string GetExistsPath(string basePath, string ext)
-        {
-            string d = basePath + ext;
-            if (File.Exists(d))
-                return d;
+            if (srcExt == ".h" || srcExt == ".hpp")
+            {
+                l.Add(".cpp");
+                l.Add(".c");
+                return l;
+            }
+            if (srcExt == ".frag")
+            {
+                l.Add(".vert");
+                return l;
+            }
+            if (srcExt == ".vert")
+            {
+                l.Add(".frag");
+                return l;
+            }
             return null;
         }
     }
