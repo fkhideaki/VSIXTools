@@ -31,13 +31,23 @@
     group; your package should define its own command set in order to avoid collisions
     with command ids defined by other packages. -->
 
+    <!-- Define a top-level "VSIXTools" menu under Tools -->
+    <Menus>
+      <Menu guid="guidVSIXToolsPackageCmdSet" id="VSIXToolsMenu" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+        <Strings>
+          <MenuText>VSIXTools</MenuText>
+        </Strings>
+      </Menu>
+    </Menus>
+
     <!-- In this section you can define new menu groups. A menu group is a container for
          other menus or buttons (commands); from a visual point of view you can see the
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
       <Group guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+        <Parent guid="guidVSIXToolsPackageCmdSet" id="VSIXToolsMenu" />
       </Group>
     </Groups>
 
