@@ -96,29 +96,24 @@ namespace VSIXTools
 
             DTE dte = Package.GetGlobalService(typeof(SDTE)) as DTE;
 
-            String fs = getMultilineFindPattern(dte);
-            if (fs == null)
+            String findStr = getMultilineFindPattern(dte);
+            if (findStr == null)
                 return;
 
-            Find f = dte.Find;
-            f.Action = vsFindAction.vsFindActionFind;
-            f.Backwards = false;
-            f.FindWhat = fs;
-            f.MatchWholeWord = false;
-            f.MatchCase = false;
-            f.MatchInHiddenText = true;
-            f.Target = vsFindTarget.vsFindTargetCurrentDocument;
-            f.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxRegExpr;
-            f.Execute();
+            dte.ExecuteCommand("Edit.Find");
 
-            Window w = (Window)dte.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
-            w.Visible = true;
+            Find find = dte.Find;
+            find.Action = vsFindAction.vsFindActionFind;
+            find.Backwards = false;
+            find.FindWhat = findStr;
+            find.MatchWholeWord = false;
+            find.MatchCase = false;
+            find.MatchInHiddenText = true;
+            find.Target = vsFindTarget.vsFindTargetCurrentDocument;
+            find.PatternSyntax = vsFindPatternSyntax.vsFindPatternSyntaxRegExpr;
+            find.Execute();
 
-            //OutputWindowPane owp = GetOutputPane(w);
-            //owp.Activate();
-            //owp.OutputString(fs + "\n");
-
-            Clipboard.SetText(fs);
+            Clipboard.SetText(findStr);
         }
 
         private OutputWindowPane GetOutputPane(Window w)
