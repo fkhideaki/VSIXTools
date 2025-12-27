@@ -127,9 +127,10 @@
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="guidVSIXToolsPackageCmdSet" value="{19db246c-f602-457b-af45-cad72791aabd}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="VSIXToolsMenu" value="0x1050" />
       <IDSymbol value="4137" name="cmdidTortoiseDiffCmd" />
-      <IDSymbol name="TortoiseLogCmdId" value="0x0100" />
       <IDSymbol value="4129" name="cmdidTortoiseDiffDirCmd" />
+      <IDSymbol value="0x0100" name="TortoiseLogCmdId" />
       <IDSymbol value="4130" name="cmdidTortoiseLogDirCmd" />
       <IDSymbol value="4132" name="cmdidOpenCurrentDirCmd" />
       <IDSymbol value="4133" name="cmdidOpenPairCmd" />
