@@ -1,6 +1,6 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
-    <Identity Id="VSIXTools.685a2ebe-2cb5-4368-b023-9614d50fe058" Version="1.4" Language="en-US" Publisher="FKHD" />
+    <Identity Id="VSIXTools.685a2ebe-2cb5-4368-b023-9614d50fe058" Version="1.5" Language="en-US" Publisher="FKHD" />
     <DisplayName>VSIXTools</DisplayName>
     <Description xml:space="preserve">Empty VSIX Project.</Description>
   </Metadata>
