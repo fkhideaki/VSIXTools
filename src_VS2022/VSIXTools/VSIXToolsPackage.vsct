@@ -94,20 +94,6 @@
           <ButtonText>OpenPair</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidOpenTmp1" priority="0x0100" type="Button">
-        <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages6" id="bmpPic1" />
-        <Strings>
-          <ButtonText>OpenTmp1</ButtonText>
-        </Strings>
-      </Button>
-      <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidOpenTmp2" priority="0x0100" type="Button">
-        <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages7" id="bmpPic1" />
-        <Strings>
-          <ButtonText>OpenTmp2</ButtonText>
-        </Strings>
-      </Button>
       <Button guid="guidVSIXToolsPackageCmdSet" id="cmdidFindMultilineCmd" priority="0x0100" type="Button">
         <Parent guid="guidVSIXToolsPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages8" id="bmpPic1" />
@@ -130,8 +116,6 @@
       <Bitmap guid="guidImages2" href="Resources\TortoiseLogDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages4" href="Resources\OpenCurrentDirCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages5" href="Resources\OpenPairCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages6" href="Resources\OpenTmp1.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages7" href="Resources\OpenTmp2.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages8" href="Resources\FindMultilineCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
   </Commands>
@@ -149,8 +133,6 @@
       <IDSymbol value="4130" name="cmdidTortoiseLogDirCmd" />
       <IDSymbol value="4132" name="cmdidOpenCurrentDirCmd" />
       <IDSymbol value="4133" name="cmdidOpenPairCmd" />
-      <IDSymbol value="4134" name="cmdidOpenTmp1" />
-      <IDSymbol value="4135" name="cmdidOpenTmp2" />
       <IDSymbol value="4136" name="cmdidFindMultilineCmd" />
     </GuidSymbol>
 

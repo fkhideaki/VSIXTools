@@ -48,8 +48,6 @@
     <Compile Include="FindMultilineCmd.cs" />
     <Compile Include="OpenCurrentDirCmd.cs" />
     <Compile Include="OpenPairCmd.cs" />
-    <Compile Include="OpenTmp1.cs" />
-    <Compile Include="OpenTmp2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TortoiseDiffCmd.cs" />
     <Compile Include="TortoiseDiffDirCmd.cs" />

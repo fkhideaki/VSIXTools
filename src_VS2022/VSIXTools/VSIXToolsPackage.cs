@@ -53,8 +53,6 @@ namespace VSIXTools
             await TortoiseLogDirCmd.InitializeAsync(this);
             await OpenCurrentDirCmd.InitializeAsync(this);
             await OpenPairCmd.InitializeAsync(this);
-            await OpenTmp1.InitializeAsync(this);
-            await OpenTmp2.InitializeAsync(this);
             await FindMultilineCmd.InitializeAsync(this);
         }
 
